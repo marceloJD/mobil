@@ -1,6 +1,17 @@
 const Mensaje = require('../models/MensajeModel'); // Asegúrate de usar la ruta correcta
 
 const MensajeService = {
+  getByChatId: async (idChat) => {
+    try {
+      const mensajes = await Mensaje.findAll({
+        where: { id_chat: idChat },
+      });
+      return mensajes;
+    } catch (error) {
+      console.error(error);
+      throw new Error('Error al obtener los mensajes del chat.');
+    }
+  },
   async getAll() {
     try {
       const mensajes = await Mensaje.findAll();

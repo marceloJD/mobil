@@ -77,9 +77,26 @@ CREATE TABLE Archivo(
 
 
 -- Usuario 1
-INSERT INTO Usuario (nombre, DNI, codigo, email, clave, claveRecuperacion, rol)
-VALUES ('Juan Pérez', '12345678A', 'USR001', 'juan@example.com', 'contraseña123', 'claveRecuperacion1', 1);
+INSERT INTO Usuario (id,nombre, DNI, codigo, email, clave, claveRecuperacion, rol)
+VALUES (1,'Juan Pérez', '12345678A', 'USR001', 'juan@example.com', 'contraseña123', 'claveRecuperacion1', 1);
 
 -- Usuario 2
-INSERT INTO Usuario (nombre, DNI, codigo, email, clave, claveRecuperacion, rol)
-VALUES ('María García', '87654321B', 'USR002', 'maria@example.com', 'password456', 'claveRecuperacion2', 2);
+INSERT INTO Usuario (id,nombre, DNI, codigo, email, clave, claveRecuperacion, rol)
+VALUES (2,'María García', '87654321B', 'USR002', 'maria@example.com', 'password456', 'claveRecuperacion2', 2);
+
+
+-- Crear un chat entre los usuarios 1 y 2
+INSERT INTO Chat (id,titulo, fecha_ingreso, fecha_edicion, id_usuario1, id_usuario2)
+VALUES (1,'Chat de Juan y María', '4/11/2023', '4/11/2023', 1, 2);
+
+-- Obtener el ID del chat recién creado
+-- Este valor dependerá de la base de datos que estés utilizando.
+-- Por ejemplo, en SQLite puedes usar "last_insert_rowid()" para obtener el último ID insertado.
+-- En otros sistemas de gestión de bases de datos, puedes utilizar funciones o sentencias específicas para obtener el último ID insertado.
+
+-- Insertar mensajes en el chat
+INSERT INTO Mensaje (contenido, id_chat, id_usuario, fecha_ingreso)
+VALUES ('Hola, María', 1, 1, '4/11/2023');
+
+INSERT INTO Mensaje (contenido, id_chat, id_usuario, fecha_ingreso)
+VALUES ('Hola, Juan', 1, 2, '4/11/2023');

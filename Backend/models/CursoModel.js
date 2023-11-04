@@ -1,6 +1,6 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('./database');
-const Usuario = require('./Usuario');  // Asegúrate de importar el modelo de Usuario si no lo has hecho
+const Usuario = require('./UsuarioModel');  // Asegúrate de importar el modelo de Usuario si no lo has hecho
 
 const Curso = sequelize.define('Curso', {
   id: {

@@ -1,6 +1,6 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('./database');
-const Usuario = require('./Usuario');
+const Usuario = require('./UsuarioModel');
 
 const Chat = sequelize.define('Chat', {
   id: {

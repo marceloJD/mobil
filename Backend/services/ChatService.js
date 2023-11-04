@@ -1,4 +1,5 @@
 const Chat = require('../models/ChatModel'); // Asegúrate de usar la ruta correcta
+const Mensaje = require('../models/MensajeModel');
 
 const ChatService = {
   async getAll() {
@@ -14,9 +15,11 @@ const ChatService = {
   async get(id) {
     try {
       const chat = await Chat.findByPk(id);
+
       if (!chat) {
         throw new Error('Chat no encontrado.');
       }
+
       return chat;
     } catch (error) {
       console.error(error);
